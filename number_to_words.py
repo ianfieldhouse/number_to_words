@@ -12,6 +12,8 @@ class NumberToWords(object):
     TENS = ['', '', 'twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy',
             'eighty', 'ninety']
     LARGE_NUMBERS = ['', 'thousand', 'million']
+    EXCEPTION_STRING = "This method expects positive integer values between " \
+        + "0 and {0}".format(MAX)
 
     def convert(self, number):
         """
@@ -22,4 +24,11 @@ class NumberToWords(object):
 
         Returns:
             sentence (string): The textual representation of `number`.
+
+        Raises:
+            ValueError: If `number` is not a positive integer or is greater
+                        than `MAX`.
         """
+
+        if not isinstance(number, (int, long)):
+            raise ValueError(self.EXCEPTION_STRING)
