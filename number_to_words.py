@@ -32,3 +32,7 @@ class NumberToWords(object):
 
         if not isinstance(number, (int, long)):
             raise ValueError(self.EXCEPTION_STRING)
+        sentence = ""
+        if number is 0:
+            sentence = "zero"
+        return sentence
