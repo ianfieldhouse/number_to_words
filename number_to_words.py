@@ -45,4 +45,9 @@ class NumberToWords(object):
             zero_filled_groups = []
             for group in groups:
                 zero_filled_groups.append(group.zfill(3))
+
+            # reverse the list of strings so that the list indexes of the
+            # string representation of hundreds, thousands and million
+            # match those of `LARGE_NUMBERS`
+            zero_filled_groups.reverse()
         return sentence.rstrip()
