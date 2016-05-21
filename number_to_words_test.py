@@ -68,6 +68,18 @@ class TestNumberToWords(unittest.TestCase):
                      + 'and ninety nine thousand nine hundred and ninety nine'
         self.assertEqual(MAX_STRING, self.n2w.convert(self.n2w.MAX))
 
+    def test_invalid_input(self):
+        INVALID_INPUTS = [-1, 1.5, '12', 'foo', ['foo'], self.n2w.MAX + 1]
+
+        for item in INVALID_INPUTS:
+            self.assertRaises(ValueError, self.n2w.convert, item)
+
+            # try:
+            #     self.n3w.convert(item)
+            #     self.ass
+            # except Exception as e:
+            #     self.assertEqual(ValueError, type(e))
+
     def assert_numbers_equal_to_strings(self, numbers):
         for number, string in numbers.iteritems():
             self.assertEqual(string, self.n2w.convert(number))
