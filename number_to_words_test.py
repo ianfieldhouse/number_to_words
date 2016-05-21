@@ -63,6 +63,11 @@ class TestNumberToWords(unittest.TestCase):
         }
         self.assert_numbers_equal_to_strings(NUMBERS)
 
+    def test_max(self):
+        MAX_STRING = 'nine hundred and ninety nine million nine hundred ' \
+                     + 'and ninety nine thousand nine hundred and ninety nine'
+        self.assertEqual(MAX_STRING, self.n2w.convert(self.n2w.MAX))
+
     def assert_numbers_equal_to_strings(self, numbers):
         for number, string in numbers.iteritems():
             self.assertEqual(string, self.n2w.convert(number))
