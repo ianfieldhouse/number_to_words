@@ -7,7 +7,7 @@ class NumberToWords(object):
         >>> from number_to_words import NumberToWords
         >>> n2w = NumberToWords()
         >>> n2w.convert(123)
-        'one hundreed and twenty three'
+        'one hundred and twenty three'
     """
 
     MAX = 999999999
