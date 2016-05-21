@@ -57,6 +57,10 @@ class NumberToWords(object):
                     self._number_to_word_list(group, suffix))
                 if len(number_as_words) > 0:
                     sentence = "{0} {1}".format(number_as_words, sentence)
+                # set this group to None so as to not set a false `index`
+                # for subsequent groups where `number` has multiple
+                # identical groups
+                zero_filled_groups[index] = None
         return sentence.rstrip()
 
     def _number_to_word_list(self, number_string, suffix=None):
