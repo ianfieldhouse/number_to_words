@@ -50,6 +50,13 @@ class NumberToWords(object):
             # string representation of hundreds, thousands and million
             # match those of `LARGE_NUMBERS`
             zero_filled_groups.reverse()
+            for group in zero_filled_groups:
+                index = zero_filled_groups.index(group)
+                suffix = self.LARGE_NUMBERS[index]
+                number_as_words = " ".join(
+                    self._number_to_word_list(group, suffix))
+                if len(number_as_words) > 0:
+                    sentence = "{0} {1}".format(number_as_words, sentence)
         return sentence.rstrip()
 
     def _number_to_word_list(self, number_string, suffix=None):
