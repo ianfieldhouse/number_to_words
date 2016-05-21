@@ -2,6 +2,12 @@ class NumberToWords(object):
     """
     Class for converting positive integer values to a textual representation
     of the submitted number for value of 0 up to 999999999.
+
+    Example:
+        >>> from number_to_words import NumberToWords
+        >>> n2w = NumberToWords()
+        >>> n2w.convert(123)
+        'one hundreed and twenty three'
     """
 
     MAX = 999999999
