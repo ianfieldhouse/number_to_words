@@ -81,6 +81,18 @@ class NumberToWords(object):
         """
         Take a 3 digit string representation of an integer and convert it to a
         textual representation with an optional suffix.
+
+        Args:
+            number_string (str): The number to be converted as a string.
+            is_and_required (bool): Whether the word and should be prefixed
+                                    before tens and units when there is a zero
+                                    in the hundreds column.
+            suffix (Optional[str]): The string to append to the end of the
+                                    words (default None)
+
+        Returns:
+            words (List[str]): A list of strings of the words that make up the
+                           textual representation of `number_string`.
         """
 
         words = []
