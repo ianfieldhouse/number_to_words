@@ -85,13 +85,13 @@ class NumberToWords(object):
 
         words = []
         hundreds, tens, units = [int(n) for n in list(number_string)]
-
+        total = sum([hundreds, tens, units])
         if hundreds is not 0:
             string = self.SMALL_NUMBERS[hundreds]
             words.append("{0} hundred".format(string))
             if tens is not 0 or units is not 0:
                 words.append("and")
-        elif hundreds is 0 and is_and_required:
+        elif hundreds is 0 and is_and_required and total is not 0:
             words.append("and")
         if tens is 1:
             string = self.SMALL_NUMBERS[int("{0}{1}".format(tens, units))]
@@ -104,7 +104,7 @@ class NumberToWords(object):
                 string = self.SMALL_NUMBERS[units]
                 words.append("{0}".format(string))
 
-        if suffix and (sum([hundreds, tens, units]) is not 0):
+        if suffix and total is not 0:
             words.append(suffix)
 
         return words
