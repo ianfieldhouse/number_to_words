@@ -12,3 +12,14 @@ class NumberToWords(object):
     TENS = ['', '', 'twenty', 'thirty', 'fourty', 'fifty', 'sixty', 'seventy',
             'eighty', 'ninety']
     LARGE_NUMBERS = ['', 'thousand', 'million']
+
+    def convert(self, number):
+        """
+        Take an integer and return it converted to a textual representation.
+
+        Args:
+            number (int): The number to be converted.
+
+        Returns:
+            sentence (string): The textual representation of `number`.
+        """
