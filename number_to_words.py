@@ -40,3 +40,9 @@ class NumberToWords(object):
             # split number into a list of strings where each list item is
             # at most 3 character in length.
             groups = format(number, ',').split(',')
+
+            # make sure each list item is exactly 3 characters long by
+            # zero filling
+            zero_filled_groups = []
+            for group in groups:
+                zero_filled_groups.append(group.zfill(3))
