@@ -35,7 +35,6 @@ class NumberToWords(object):
         sentence = ""
         if number is 0:
             sentence = "zero"
-        return sentence
         else:
             # split number into a list of strings where each list item is
             # at most 3 character in length.
@@ -46,3 +45,4 @@ class NumberToWords(object):
             zero_filled_groups = []
             for group in groups:
                 zero_filled_groups.append(group.zfill(3))
+        return sentence.rstrip()
