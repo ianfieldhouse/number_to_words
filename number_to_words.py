@@ -51,3 +51,9 @@ class NumberToWords(object):
             # match those of `LARGE_NUMBERS`
             zero_filled_groups.reverse()
         return sentence.rstrip()
+
+    def _number_to_word_list(self, number_string, suffix=None):
+        """
+        Take a 3 digit string representation of an integer and convert it to a
+        textual representation with an optional suffix.
+        """
