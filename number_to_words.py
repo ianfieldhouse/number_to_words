@@ -36,3 +36,7 @@ class NumberToWords(object):
         if number is 0:
             sentence = "zero"
         return sentence
+        else:
+            # split number into a list of strings where each list item is
+            # at most 3 character in length.
+            groups = format(number, ',').split(',')
