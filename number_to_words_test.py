@@ -24,6 +24,15 @@ class TestNumberToWords(unittest.TestCase):
         }
         self.assert_numbers_equal_to_strings(NUMBERS)
 
+    def test_factors_of_ten(self):
+        NUMBERS = {
+            10: 'ten', 100: 'one hundred', 1000: 'one thousand',
+            10000: 'ten thousand', 100000: 'one hundred thousand',
+            1000000: 'one million', 10000000: 'ten million',
+            100000000: 'one hundred million'
+        }
+        self.assert_numbers_equal_to_strings(NUMBERS)
+
     def test_tens(self):
         NUMBERS = {
             20: 'twenty', 29: 'twenty nine', 30: 'thirty', 38: 'thirty eight',
