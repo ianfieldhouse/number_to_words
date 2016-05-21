@@ -24,6 +24,15 @@ class TestNumberToWords(unittest.TestCase):
         }
         self.assert_numbers_equal_to_strings(NUMBERS)
 
+    def test_tens(self):
+        NUMBERS = {
+            20: 'twenty', 29: 'twenty nine', 30: 'thirty', 38: 'thirty eight',
+            40: 'fourty', 47: 'fourty seven', 50: 'fifty', 56: 'fifty six',
+            60: 'sixty', 65: 'sixty five', 70: 'seventy', 74: 'seventy four',
+            80: 'eighty', 83: 'eighty three', 90: 'ninety', 92: 'ninety two'
+        }
+        self.assert_numbers_equal_to_strings(NUMBERS)
+
     def assert_numbers_equal_to_strings(self, numbers):
         for number, string in numbers.iteritems():
             self.assertEqual(string, self.n2w.convert(number))
