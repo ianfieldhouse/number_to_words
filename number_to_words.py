@@ -57,3 +57,7 @@ class NumberToWords(object):
         Take a 3 digit string representation of an integer and convert it to a
         textual representation with an optional suffix.
         """
+
+        words = []
+
+        return words
