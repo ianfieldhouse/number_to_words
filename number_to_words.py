@@ -108,3 +108,30 @@ class NumberToWords(object):
             words.append(suffix)
 
         return words
+
+if __name__ == "__main__":
+    n2w = NumberToWords()
+    unique = set()
+
+    def fib():
+        x, y = 0, 1
+        yield x
+        yield y
+
+        while True:
+            x, y = y, x + y
+            yield y
+
+    for num in fib():
+        if num > n2w.MAX:
+            break
+        unique.add(num)
+
+    print n2w.__doc__
+    print """
+Some example conversions from number to words
+=============================================\n"""
+
+    for num in sorted(list(unique)):
+        print "{0} : {1}".format(format(num, ','), n2w.convert(num))
+    print "{0} : {1}".format(format(n2w.MAX, ','), n2w.convert(n2w.MAX))
