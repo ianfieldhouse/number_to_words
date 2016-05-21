@@ -70,4 +70,8 @@ class NumberToWords(object):
         if tens is 1:
             string = self.SMALL_NUMBERS[int("{0}{1}".format(tens, units))]
             words.append("{0}".format(string))
+        else:
+            if tens is not 0:
+                string = self.TENS[tens]
+                words.append("{0}".format(string))
         return words
