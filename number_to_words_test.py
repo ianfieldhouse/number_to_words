@@ -74,12 +74,6 @@ class TestNumberToWords(unittest.TestCase):
         for item in INVALID_INPUTS:
             self.assertRaises(ValueError, self.n2w.convert, item)
 
-            # try:
-            #     self.n3w.convert(item)
-            #     self.ass
-            # except Exception as e:
-            #     self.assertEqual(ValueError, type(e))
-
     def assert_numbers_equal_to_strings(self, numbers):
         for number, string in numbers.iteritems():
             self.assertEqual(string, self.n2w.convert(number))
