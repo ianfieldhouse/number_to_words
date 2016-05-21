@@ -77,4 +77,8 @@ class NumberToWords(object):
             if units is not 0:
                 string = self.SMALL_NUMBERS[units]
                 words.append("{0}".format(string))
+
+        if suffix and (sum([hundreds, tens, units]) is not 0):
+            words.append(suffix)
+
         return words
