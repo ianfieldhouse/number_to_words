@@ -63,6 +63,20 @@ class TestNumberToWords(unittest.TestCase):
         }
         self.assert_numbers_equal_to_strings(NUMBERS)
 
+    def test_zero_in_hundreds_column(self):
+        NUMBERS = {
+            1023: 'one thousand and twenty three',
+            12034: 'twelve thousand and thirty four',
+            123045: 'one hundred and twenty three thousand and fourty five',
+            1234056: 'one million two hundred and thirty four thousand and ' +
+                     'fifty six',
+            12345067: 'twelve million three hundred and fourty five ' +
+                      'thousand and sixty seven',
+            123456078: 'one hundred and twenty three million four hundred ' +
+                       'and fifty six thousand and seventy eight'
+        }
+        self.assert_numbers_equal_to_strings(NUMBERS)
+
     def test_max(self):
         MAX_STRING = 'nine hundred and ninety nine million nine hundred ' \
                      + 'and ninety nine thousand nine hundred and ninety nine'
