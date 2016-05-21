@@ -59,5 +59,6 @@ class NumberToWords(object):
         """
 
         words = []
+        hundreds, tens, units = [int(n) for n in list(number_string)]
 
         return words
