@@ -32,36 +32,39 @@ class NumberToWords(object):
 
         if not isinstance(number, (int, long)):
             raise ValueError(self.EXCEPTION_STRING)
-        sentence = ""
-        if number is 0:
-            sentence = "zero"
-        else:
-            # split number into a list of strings where each list item is
-            # at most 3 character in length.
-            groups = format(number, ',').split(',')
+        try:
+            sentence = ""
+            if number is 0:
+                sentence = "zero"
+            else:
+                # split number into a list of strings where each list item is
+                # at most 3 character in length.
+                groups = format(number, ',').split(',')
 
-            # make sure each list item is exactly 3 characters long by
-            # zero filling
-            zero_filled_groups = []
-            for group in groups:
-                zero_filled_groups.append(group.zfill(3))
+                # make sure each list item is exactly 3 characters long by
+                # zero filling
+                zero_filled_groups = []
+                for group in groups:
+                    zero_filled_groups.append(group.zfill(3))
 
-            # reverse the list of strings so that the list indexes of the
-            # string representation of hundreds, thousands and million
-            # match those of `LARGE_NUMBERS`
-            zero_filled_groups.reverse()
-            for group in zero_filled_groups:
-                index = zero_filled_groups.index(group)
-                suffix = self.LARGE_NUMBERS[index]
-                number_as_words = " ".join(
-                    self._number_to_word_list(group, suffix))
-                if len(number_as_words) > 0:
-                    sentence = "{0} {1}".format(number_as_words, sentence)
-                # set this group to None so as to not set a false `index`
-                # for subsequent groups where `number` has multiple
-                # identical groups
-                zero_filled_groups[index] = None
-        return sentence.rstrip()
+                # reverse the list of strings so that the list indexes of the
+                # string representation of hundreds, thousands and million
+                # match those of `LARGE_NUMBERS`
+                zero_filled_groups.reverse()
+                for group in zero_filled_groups:
+                    index = zero_filled_groups.index(group)
+                    suffix = self.LARGE_NUMBERS[index]
+                    number_as_words = " ".join(
+                        self._number_to_word_list(group, suffix))
+                    if len(number_as_words) > 0:
+                        sentence = "{0} {1}".format(number_as_words, sentence)
+                    # set this group to None so as to not set a false `index`
+                    # for subsequent groups where `number` has multiple
+                    # identical groups
+                    zero_filled_groups[index] = None
+            return sentence.rstrip()
+        except (IndexError, ValueError):
+            raise ValueError(self.EXCEPTION_STRING)
 
     def _number_to_word_list(self, number_string, suffix=None):
         """
