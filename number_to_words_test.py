@@ -42,6 +42,18 @@ class TestNumberToWords(unittest.TestCase):
         }
         self.assert_numbers_equal_to_strings(NUMBERS)
 
+    def test_zero_hundreds(self):
+        NUMBERS = {
+            12000: 'twelve thousand',
+            123000: 'one hundred and twenty three thousand',
+            1234000: 'one million two hundred and thirty four thousand',
+            12345000: 'twelve million three hundred and fourty five ' +
+                      'thousand',
+            123456000: 'one hundred and twenty three million four hundred ' +
+                       'and fifty six thousand'
+        }
+        self.assert_numbers_equal_to_strings(NUMBERS)
+
     def assert_numbers_equal_to_strings(self, numbers):
         for number, string in numbers.iteritems():
             self.assertEqual(string, self.n2w.convert(number))
