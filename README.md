@@ -19,3 +19,4 @@ python number_to_words.py
 ```
 python -m unittest -v number_to_words_test
 ```
+[![Build Status](https://travis-ci.org/ianfieldhouse/number_to_words.svg?branch=master)](https://travis-ci.org/ianfieldhouse/number_to_words)
