@@ -60,8 +60,12 @@ class NumberToWords(object):
                 for group in zero_filled_groups:
                     index = zero_filled_groups.index(group)
                     suffix = self.LARGE_NUMBERS[index]
+                    is_and_required = False
+                    if index is 0 and len(zero_filled_groups) > 1:
+                        is_and_required = True
                     number_as_words = " ".join(
-                        self._number_to_word_list(group, suffix))
+                        self._number_to_word_list(group, is_and_required,
+                                                  suffix))
                     if len(number_as_words) > 0:
                         sentence = "{0} {1}".format(number_as_words, sentence)
                     # set this group to None so as to not set a false `index`
@@ -72,7 +76,8 @@ class NumberToWords(object):
         except (IndexError, ValueError):
             raise ValueError(self.EXCEPTION_STRING)
 
-    def _number_to_word_list(self, number_string, suffix=None):
+    def _number_to_word_list(self, number_string, is_and_required,
+                             suffix=None):
         """
         Take a 3 digit string representation of an integer and convert it to a
         textual representation with an optional suffix.
@@ -86,7 +91,8 @@ class NumberToWords(object):
             words.append("{0} hundred".format(string))
             if tens is not 0 or units is not 0:
                 words.append("and")
-
+        elif hundreds is 0 and is_and_required:
+            words.append("and")
         if tens is 1:
             string = self.SMALL_NUMBERS[int("{0}{1}".format(tens, units))]
             words.append("{0}".format(string))
