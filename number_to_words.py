@@ -66,4 +66,8 @@ class NumberToWords(object):
             words.append("{0} hundred".format(string))
             if tens is not 0 or units is not 0:
                 words.append("and")
+
+        if tens is 1:
+            string = self.SMALL_NUMBERS[int("{0}{1}".format(tens, units))]
+            words.append("{0}".format(string))
         return words
