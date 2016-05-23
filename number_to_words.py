@@ -36,7 +36,7 @@ class NumberToWords(object):
                         than `MAX`.
         """
 
-        if not isinstance(number, (int, long)):
+        if not isinstance(number, int):
             raise ValueError(self.EXCEPTION_STRING)
         try:
             sentence = ""
@@ -139,11 +139,11 @@ if __name__ == "__main__":
             break
         unique.add(num)
 
-    print n2w.__doc__
-    print """
+    print(n2w.__doc__)
+    print("""
 Some example conversions from number to words
-=============================================\n"""
+=============================================\n""")
 
     for num in sorted(list(unique)):
-        print "{0} : {1}".format(format(num, ','), n2w.convert(num))
-    print "{0} : {1}".format(format(n2w.MAX, ','), n2w.convert(n2w.MAX))
+        print("{0} : {1}".format(format(num, ','), n2w.convert(num)))
+    print("{0} : {1}".format(format(n2w.MAX, ','), n2w.convert(n2w.MAX)))

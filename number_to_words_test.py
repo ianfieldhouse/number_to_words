@@ -89,7 +89,7 @@ class TestNumberToWords(unittest.TestCase):
             self.assertRaises(ValueError, self.n2w.convert, item)
 
     def assert_numbers_equal_to_strings(self, numbers):
-        for number, string in numbers.iteritems():
+        for number, string in numbers.items():
             self.assertEqual(string, self.n2w.convert(number))
 
 if __name__ == '__main__':
