@@ -98,25 +98,25 @@ class NumberToWords(object):
         words = []
         hundreds, tens, units = [int(n) for n in list(number_string)]
         total = sum([hundreds, tens, units])
-        if not hundreds == 0:
+        if hundreds != 0:
             string = self.SMALL_NUMBERS[hundreds]
             words.append("{0} hundred".format(string))
-            if not tens == 0 or not units == 0:
+            if tens != 0 or units != 0:
                 words.append("and")
-        elif hundreds == 0 and is_and_required and not total == 0:
+        elif hundreds == 0 and is_and_required and total != 0:
             words.append("and")
         if tens == 1:
             string = self.SMALL_NUMBERS[int("{0}{1}".format(tens, units))]
             words.append("{0}".format(string))
         else:
-            if not tens == 0:
+            if tens != 0:
                 string = self.TENS[tens]
                 words.append("{0}".format(string))
-            if not units == 0:
+            if units != 0:
                 string = self.SMALL_NUMBERS[units]
                 words.append("{0}".format(string))
 
-        if suffix and not total == 0:
+        if suffix and total != 0:
             words.append(suffix)
 
         return words
