@@ -40,7 +40,7 @@ class NumberToWords(object):
             raise ValueError(self.EXCEPTION_STRING)
         try:
             sentence = ""
-            if number is 0:
+            if number == 0:
                 sentence = "zero"
             else:
                 # split number into a list of strings where each list item is
@@ -98,25 +98,25 @@ class NumberToWords(object):
         words = []
         hundreds, tens, units = [int(n) for n in list(number_string)]
         total = sum([hundreds, tens, units])
-        if hundreds is not 0:
+        if not hundreds == 0:
             string = self.SMALL_NUMBERS[hundreds]
             words.append("{0} hundred".format(string))
-            if tens is not 0 or units is not 0:
+            if not tens == 0 or not units == 0:
                 words.append("and")
-        elif hundreds is 0 and is_and_required and total is not 0:
+        elif hundreds == 0 and is_and_required and not total == 0:
             words.append("and")
-        if tens is 1:
+        if tens == 1:
             string = self.SMALL_NUMBERS[int("{0}{1}".format(tens, units))]
             words.append("{0}".format(string))
         else:
-            if tens is not 0:
+            if not tens == 0:
                 string = self.TENS[tens]
                 words.append("{0}".format(string))
-            if units is not 0:
+            if not units == 0:
                 string = self.SMALL_NUMBERS[units]
                 words.append("{0}".format(string))
 
-        if suffix and total is not 0:
+        if suffix and not total == 0:
             words.append(suffix)
 
         return words
